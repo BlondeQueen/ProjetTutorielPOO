@@ -23,7 +23,7 @@ public class MainApplication {
         Contact contact1 = new Contact("001", "John Doe", null, null, null, null);
         Etudiant etudiant1 = new Etudiant("002", "Alice Smith", null, null, null, null, "Cycle 1", "Niveau 2");
         Enseignant enseignant1 = new Enseignant("003", "Bob Johnson", null, null, null, null, "Professeur");
-        Agent agent1 = new Agent("004", "Eva Anderson", null, null, null, null, 5000.0, "Agent administratif", "Catégorie A", 3, "Secrétaire");
+        Agent agent1 = new Agent("004", "Eva Anderson", null, null, null, null, 5000.0, "Agent administratif", "Categorie A", 3, "Secretaire");
 
         // Ajout des contacts au répertoire
         repertoire.ajouterContact(contact1);

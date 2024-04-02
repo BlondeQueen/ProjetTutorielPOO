@@ -6,6 +6,7 @@ package IHM;
 
 import core.Contact;
 import core.Repertoire;
+import java.awt.ComponentOrientation;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,7 +24,7 @@ public class AfficherListeContact extends javax.swing.JFrame {
     public AfficherListeContact(Repertoire contient) {
         initComponents();
         for (Contact monContact: contient.getListeContacts()){
-                String table[]= {
+                String table1[]= {
                 monContact.getCode(),
                 monContact.getNom(),
                 monContact.getDateNaissance().toString(),
@@ -32,8 +33,38 @@ public class AfficherListeContact extends javax.swing.JFrame {
                 monContact.getTelNumber()
                     };
 
-                DefaultTableModel tB =(DefaultTableModel) jTable1.getModel();
-                tB.addRow(table);
+                DefaultTableModel tB =(DefaultTableModel) jTable11.getModel();
+                tB.addRow(table1);
+                this.contient= contient;
+                this.parent =parent;
+        }
+        for (Contact monContact: contient.getListeContacts()){
+                String table2[]= {
+                monContact.getCode(),
+                monContact.getNom(),
+                monContact.getDateNaissance().toString(),
+                monContact.getAdresse(),
+                monContact.getEmail(),
+                monContact.getTelNumber()
+                    };
+
+                DefaultTableModel tB =(DefaultTableModel) jTable11.getModel();
+                tB.addRow(table2);
+                this.contient= contient;
+                this.parent =parent;
+        }
+        for (Contact monContact: contient.getListeContacts()){
+                String table3[]= {
+                monContact.getCode(),
+                monContact.getNom(),
+                monContact.getDateNaissance().toString(),
+                monContact.getAdresse(),
+                monContact.getEmail(),
+                monContact.getTelNumber()
+                    };
+
+                DefaultTableModel tB =(DefaultTableModel) jTable33.getModel();
+                tB.addRow(table3);
                 this.contient= contient;
                 this.parent =parent;
         }
@@ -51,8 +82,12 @@ public class AfficherListeContact extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable22 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable33 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable11 = new javax.swing.JTable();
 
         jLabel2.setText("jLabel2");
 
@@ -60,15 +95,15 @@ public class AfficherListeContact extends javax.swing.JFrame {
 
         jLabel1.setText("Liste des contacts");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable22.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Code", "Nom", "DateDeNaissance", "Adresse", "Email", "numeroDeTElephone"
+                "Code", "Nom", "DateDeNaissance", "Adresse", "Email", "numeroDeTElephone", "statut"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable22);
 
         jButton1.setText("Retourner");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,34 +112,68 @@ public class AfficherListeContact extends javax.swing.JFrame {
             }
         });
 
+        jTable33.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Code", "Nom", "DateDeNaissance", "Adresse", "Email", "numeroDeTElephone", "salaire", "statut", "categorie", "indiceSalaire", "occupation"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable33);
+
+        jTable11.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Code", "Nom", "DateDeNaissance", "Adresse", "Email", "numeroDeTElephone", "cycle", "niveau"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable11);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(462, 462, 462))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 993, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(526, 526, 526))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(44, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(235, 235, 235)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(105, 105, 105)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(523, Short.MAX_VALUE)))
         );
 
         pack();
@@ -112,7 +181,7 @@ public class AfficherListeContact extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        this.parent.setVisible(true);       
+        this.parent.setVisible(true); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -125,6 +194,10 @@ public class AfficherListeContact extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable11;
+    private javax.swing.JTable jTable22;
+    private javax.swing.JTable jTable33;
     // End of variables declaration//GEN-END:variables
 }

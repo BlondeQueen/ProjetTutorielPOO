@@ -17,27 +17,11 @@ import java.sql.SQLException;
  */
 public class MainFrmApplication extends javax.swing.JFrame {
 
-   
-    private Connection connection;
+
     private Repertoire contient;
     public MainFrmApplication() {
         initComponents();
         this.contient= new Repertoire();
-        try {
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/gestioncontact", "root","1234");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-     public void closeConnection() throws IOException {
-        // Fermer la connexion à la base de données
-        try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
 

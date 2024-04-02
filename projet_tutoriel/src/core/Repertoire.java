@@ -27,7 +27,7 @@ public class Repertoire {
     }
 
     public void modifierContact(Contact contact) {
-        // Implémentez votre logique de modification ici
+        // Implementez votre logique de modification ici
     }
 
     public Contact rechercherContact(String nom) {
